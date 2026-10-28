@@ -83,6 +83,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; } /* 讓 hidden 屬性在任何環境都有效（例如 .flow-panel 的 display: grid 不會蓋過它） */
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body {
   margin: 0;
