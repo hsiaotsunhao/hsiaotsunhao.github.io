@@ -87,8 +87,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body {
   margin: 0;
-  /* 稿紙點點背景（點點半透明、間距 18px ≈ 密度 -20%） */
-  background: var(--bg) radial-gradient(circle, color-mix(in srgb, var(--dot) 55%, transparent) 1.1px, transparent 1.5px) 0 0 / 18px 18px;
+  background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
   font-size: var(--step-0);
@@ -98,6 +97,12 @@ body {
 body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
   z-index: 60; background: var(--bg);
+}
+/* 稿紙點點背景（點點半透明、間距 18px）：固定在畫面上不動，捲動時只有內容在上面滑過
+   用固定定位的圖層而不是 background-attachment: fixed，iPhone 上也有效，捲動也比較順 */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--dot) 55%, transparent) 1.1px, transparent 1.5px) 0 0 / 18px 18px;
 }
 h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25; }
 p { margin: 0; }
