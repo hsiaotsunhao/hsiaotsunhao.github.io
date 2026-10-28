@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>蕭存皓作品集</title>
+<meta name="description" content="六年全職/接案數位廣告投放經驗。懂媒體工具，懂分析數據，也懂設計語彙。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="蕭存皓作品集">
+<meta property="og:description" content="六年全職/接案數位廣告投放經驗。懂媒體工具，懂分析數據，也懂設計語彙。">
+<meta property="og:url" content="https://hsiaotsunhao.github.io/">
+<meta property="og:image" content="https://hsiaotsunhao.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hsiaotsunhao.github.io/og-image.png">
+<meta name="theme-color" content="#E8590C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23E8590C' stroke-width='4'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%23E8590C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<!--
+  ===== 怎麼修改這份作品集 =====
+  1. 自我介紹、履歷、聯絡方式：直接改下方 HTML 裡標有「✎」的文字。
+  2. 作品：捲到最下面 <script> 裡的 WORKS，每一件作品是一個 { }：
+       src     圖片路徑（放在 assets/works/ 資料夾）
+       project 專案名稱（顯示在作品標題上方）
+       title   作品名稱
+       note    作品說明（滑鼠指向圖片時會跳出，點開大圖時也會顯示）
+     圖片會自動裁切：直式圖 → 手機直式比例，其他 → 正方形。
+     YouTube 影片：{ type: "youtube", url: "影片網址", title, note }
+     YouTube 頻道：{ type: "channel", url: "頻道網址", handle: "@名稱", title, note }
+  3. 廣告專案：改 <script> 裡的 AD_PROJECTS。
+-->
+
+<style>
+/* Layout: 稿紙點點背景。頂部細導覽列 → 大標題 Hero → 關於我（照片＋自介＋經歷學歷）→ 廣告專案 Gallery → 設計作品（左側黏性分類標題＋右側瀑布流／滑動瀏覽／企劃專案）→ 獲獎（點擊展開）→ 聯絡 */
+:root {
+  --bg: #F9F8F6;
+  --surface: #F2EEE7;
+  --card: #FFFFFF;
+  --line: #E3E2DD;
+  --fg: #141412;
+  --muted: #6F6A5F;
+  --accent: #E8590C;
+  --accent-2: #FF7A1A;
+  --accent-ink: #C2410C;
+  --accent-soft: #FDEBDD;
+  --on-accent: #FFFFFF;
+  --dot: #DDD9D0;
+  --overlay: rgba(20, 20, 18, .82);
+  --shadow: 0 18px 40px -24px rgba(60, 40, 20, .35);
+
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: 1.2rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(1.9rem, 4vw, 2.75rem);
+  --step-4: clamp(2.6rem, 6.4vw, 4.6rem);
+
+  --radius: 6px;
+  --maxw: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131311; --surface: #1D1C19; --card: #1F1E1B; --line: #33312D;
+    --fg: #F2EEE7; --muted: #A39E91; --accent: #FF8A3D; --accent-2: #FFA05C; --accent-ink: #FF9A55;
+    --accent-soft: #3A2414; --on-accent: #1A0E05; --overlay: rgba(10, 10, 9, .86); --dot: #2C2A26;
+    --shadow: 0 18px 40px -24px rgba(0, 0, 0, .7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131311; --surface: #1D1C19; --card: #1F1E1B; --line: #33312D;
+  --fg: #F2EEE7; --muted: #A39E91; --accent: #FF8A3D; --accent-2: #FFA05C; --accent-ink: #FF9A55;
+  --accent-soft: #3A2414; --on-accent: #1A0E05; --overlay: rgba(10, 10, 9, .86); --dot: #2C2A26;
+  --shadow: 0 18px 40px -24px rgba(0, 0, 0, .7);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  margin: 0;
+  /* 稿紙點點背景（點點半透明、間距 18px ≈ 密度 -20%） */
+  background: var(--bg) radial-gradient(circle, color-mix(in srgb, var(--dot) 55%, transparent) 1.1px, transparent 1.5px) 0 0 / 18px 18px;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 60; background: var(--bg);
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--font-mono); }
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+
+/* ---------- 導覽列 ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; white-space: nowrap; }
+.brand-mark { width: 22px; height: 22px; border: 2px solid var(--accent); position: relative; }
+.brand-mark::after { content: ""; position: absolute; inset: 4px; background: var(--accent); }
+.nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  display: block; text-decoration: none; font-size: .9rem; font-weight: 500; color: var(--muted);
+  padding: 6px 10px; white-space: nowrap; position: relative; transition: color .2s;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 10px; right: 10px; bottom: 0; height: 2px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+.nav-links a:hover, .nav-links a.is-active { color: var(--fg); }
+.nav-links a.is-active::after { transform: scaleX(1); }
+@media (max-width: 600px) {
+  .brand-name { display: none; }
+  .nav-links a { padding: 6px 8px; font-size: .85rem; }
+  .nav-links a::after { left: 8px; right: 8px; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 64px); }
+.hero-text { display: grid; gap: 28px; min-width: 0; justify-items: start; }
+.hero h1 { font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+.hero h1 .line { display: block; }
+.hero h1 .accent { color: var(--accent); }
+
+/* 注音輸入動畫：先打注音（底線＝選字中），再變成國字，最後面有閃爍游標 */
+.ime-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ime-comp { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .14em; opacity: .85; }
+.ime-caret {
+  display: inline-block; width: .07em; min-width: 2px; height: .82em; margin-left: .06em; vertical-align: -.06em;
+  background: currentColor; border-radius: 1px; animation: imeBlink 1s steps(1) infinite;
+}
+.ime.typing .ime-caret { animation: none; }
+@keyframes imeBlink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ime-caret { display: none; } }
+
+.hero-lede { color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 30em; }
+.kpis-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: 40rem; border-top: 1px solid var(--fg); }
+.kpis-row div { padding: 12px 12px 0 0; display: grid; }
+.kpis-row div + div { padding-left: 14px; border-left: 1px solid var(--line); }
+.kpis-row dt { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); letter-spacing: .04em; order: 2; }
+.kpis-row dd { margin: 0; font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.3; }
+.kpis-row small { font-size: .5em; font-weight: 700; margin-left: 2px; color: var(--muted); }
+.kpis-row { margin: 0; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700;
+  padding: 12px 22px; border-radius: var(--radius); border: 1.5px solid var(--fg); font-size: .95rem;
+  transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+}
+.btn-primary { background: var(--fg); color: var(--bg); box-shadow: 4px 4px 0 var(--accent); }
+.btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--accent); }
+.btn-ghost { color: var(--fg); background: transparent; }
+.btn-ghost:hover { background: var(--fg); color: var(--bg); }
+
+/* ---------- 通用區塊 ---------- */
+.section { padding-block: clamp(64px, 9vw, 120px) 0; }
+.section-head { display: grid; gap: 8px; margin-bottom: clamp(28px, 4vw, 44px); }
+.section-head .label::before { content: "/ "; color: var(--accent); }
+.section-head h2 { font-size: var(--step-3); font-weight: 900; }
+.section-head p { color: var(--muted); max-width: 38em; }
+
+/* ---------- 關於我 ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.portrait { margin: 0; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+.about-body { display: grid; gap: 14px; max-width: 36em; }
+.about-body .intro { font-size: var(--step-1); font-weight: 700; line-height: 1.6; }
+.about-body p:not(.intro) { color: color-mix(in srgb, var(--fg) 82%, var(--bg)); }
+.hobbies { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
+.hobbies span { font-size: .85rem; border: 1px solid var(--line); padding: 2px 12px; border-radius: 999px; }
+.hobbies b { font-size: .85rem; font-weight: 700; margin-right: 2px; }
+@media (max-width: 760px) {
+  .about { grid-template-columns: 1fr; }
+  .portrait { max-width: 240px; }
+  .about-body { gap: 10px; line-height: 1.7; }
+}
+
+/* ---------- 經歷・學歷（精簡清單） ---------- */
+.cv { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0 clamp(20px, 3vw, 40px); margin-top: clamp(32px, 4vw, 48px); }
+.cv-block { border-top: 2px solid var(--fg); padding-top: 10px; min-width: 0; }
+.cv-block h3 { font-family: var(--font-mono); font-size: .75rem; font-weight: 600; letter-spacing: .08em; color: var(--accent-ink); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.cv-block h3::before { content: ""; width: 8px; height: 8px; background: var(--accent); }
+.jobs { list-style: none; margin: 0; padding: 0; display: grid; }
+.jobs li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 16px; align-items: baseline;
+  padding-block: 7px; border-bottom: 1px solid var(--line); font-size: .92rem; line-height: 1.55;
+}
+.jobs li:last-child { border-bottom: 0; }
+.jobs b { font-weight: 700; }
+.jobs .role { color: var(--muted); margin-left: .6em; }
+.jobs .yr { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 760px) {
+  .cv { grid-template-columns: 1fr; gap: 20px; }
+  .jobs .role { display: block; margin-left: 0; }
+}
+
+/* ---------- 獲獎（全部展開） ---------- */
+.awards { display: grid; border-top: 2px solid var(--fg); }
+.award { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.award-head {
+  display: grid; grid-template-columns: 4.5em minmax(0, 1fr); gap: 6px 24px;
+  align-items: center; padding: clamp(18px, 2.4vw, 28px) 4px 14px;
+}
+.award-yr { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.award-main { display: grid; gap: 2px; min-width: 0; }
+.award-rank { font-size: clamp(1.5rem, 3.4vw, 2.25rem); font-weight: 900; line-height: 1.2; }
+.award-name { color: var(--muted); font-size: .95rem; }
+.award-body {
+  display: grid; grid-template-columns: minmax(0, 46em); gap: 16px;
+  padding: 0 4px clamp(24px, 3vw, 36px) calc(4.5em + 28px);
+}
+.award-body h4 { margin: 0 0 6px; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; color: var(--accent-ink); }
+.award-body p { color: color-mix(in srgb, var(--fg) 82%, var(--bg)); }
+/* 觀看影片按鈕 */
+.watch {
+  position: relative; justify-self: start; display: inline-flex; align-items: center; text-decoration: none; font-weight: 700; font-size: .9rem;
+  padding: 9px 16px 9px 46px; border-radius: var(--radius); background: var(--fg); color: var(--bg); transition: background .2s, color .2s;
+}
+.watch::before {
+  content: ""; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; border-radius: 50%; background: var(--accent); transition: background .2s;
+}
+.watch::after {
+  content: ""; position: absolute; left: 21px; top: 50%; transform: translateY(-50%);
+  border-left: 8px solid var(--on-accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+}
+.watch:hover { background: var(--accent); color: var(--on-accent); }
+.watch:hover::before { background: var(--fg); }
+.watch:hover::after { border-left-color: var(--bg); }
+@media (max-width: 680px) {
+  .award-head { grid-template-columns: minmax(0, 1fr); }
+  .award-body { grid-template-columns: 1fr; padding-left: 4px; }
+}
+
+/* ---------- 作品 ---------- */
+.cat-jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.cat-jump a {
+  text-decoration: none; border: 1px solid var(--line); background: var(--card);
+  padding: 6px 14px 6px 8px; border-radius: 4px; font-size: .9rem; display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color .2s, color .2s;
+}
+.cat-jump a b { font-family: var(--font-mono); font-size: .75rem; width: 22px; height: 22px; display: grid; place-items: center; background: var(--fg); color: var(--bg); border-radius: 3px; font-weight: 600; }
+.cat-jump a:hover { border-color: var(--accent); color: var(--accent); }
+
+.cat {
+  display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px);
+  padding-block: 48px; border-top: 1px solid var(--line);
+}
+.cat-side { position: sticky; top: 90px; align-self: start; display: grid; gap: 10px; }
+.cat-key { font-family: var(--font-mono); font-size: 3rem; line-height: 1; color: var(--accent); font-weight: 500; }
+.cat-side h3 { font-size: var(--step-2); font-weight: 900; }
+.cat-side p { color: var(--muted); font-size: .95rem; }
+.cat-count { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); }
+@media (max-width: 820px) {
+  .cat { grid-template-columns: 1fr; gap: 20px; padding-block: 36px; }
+  .cat-side { position: static; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: baseline; }
+  .cat-key { grid-row: span 3; font-size: 2.2rem; }
+}
+
+/* 瀑布流：卡片高度依比例自動計算列數 */
+.masonry {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 4px; column-gap: 18px; grid-auto-flow: dense;
+}
+@media (max-width: 520px) { .masonry { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; } }
+.masonry > .work { align-self: start; padding-bottom: 22px; }
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 22px 18px; }
+
+.work { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.work-media {
+  position: relative; display: block; width: 100%; max-width: 100%; padding: 0; border: 0; cursor: zoom-in;
+  border-radius: var(--radius); overflow: hidden; background: var(--surface);
+  font: inherit; color: inherit; text-align: left;
+}
+.work-media.r-square { aspect-ratio: 1 / 1; }
+.work-media.r-portrait { aspect-ratio: 9 / 16; }
+.work-media.r-video { aspect-ratio: 16 / 9; cursor: pointer; }
+.work-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
+.work-media:hover img { transform: scale(1.04); }
+.work-note {
+  position: absolute; inset: auto 0 0 0; padding: 16px; display: grid; gap: 6px;
+  background: var(--overlay); color: #F7F5F0;
+  transform: translateY(101%); transition: transform .35s cubic-bezier(.3,.7,.2,1);
+  font-size: .85rem; line-height: 1.6; max-height: 100%; overflow: auto;
+}
+.work-note strong { font-size: .95rem; }
+.work-note em { font-style: normal; font-family: var(--font-mono); font-size: .7rem; opacity: .7; letter-spacing: .05em; }
+.work-media:hover .work-note, .work-media:focus-visible .work-note { transform: translateY(0); }
+@media (hover: none) { .work-note { display: none; } }
+
+.work figcaption { display: grid; gap: 0; min-width: 0; }
+.work-project { font-family: var(--font-mono); font-size: .72rem; color: var(--accent-ink); letter-spacing: .03em; }
+.work-title { font-weight: 700; font-size: .92rem; line-height: 1.5; }
+.work-title .wt { display: inline-block; word-break: keep-all; overflow-wrap: anywhere; }
+
+.yt-poster {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: radial-gradient(120% 120% at 20% 10%, color-mix(in srgb, var(--accent) 70%, #000), #121212);
+}
+.yt-poster img { position: absolute; inset: 0; }
+.yt-play {
+  position: relative; z-index: 1; width: 64px; height: 46px; border-radius: 12px;
+  background: var(--accent); display: grid; place-items: center;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,.5); transition: transform .2s;
+}
+.work-media:hover .yt-play { transform: scale(1.08); }
+.yt-play::before { content: ""; border-left: 17px solid var(--on-accent); border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px; }
+.work-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.channel {
+  position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: #0E0E0E; text-decoration: none;
+}
+.channel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
+.channel:hover img { transform: scale(1.05); }
+.channel .go {
+  position: absolute; left: 14px; bottom: 14px; font-family: var(--font-mono); font-size: .8rem; font-weight: 600;
+  background: var(--accent); color: var(--on-accent); padding: 5px 12px; border-radius: 4px;
+}
+.yt-out { font-size: .8rem; color: var(--accent-ink); font-family: var(--font-mono); }
+
+/* E 類的專案區塊：每個專案有自己的標題列，彼此分開 */
+.pblock { display: grid; gap: 20px; border-top: 2px solid var(--fg); padding-top: 18px; }
+.pblock + .pblock { margin-top: clamp(48px, 6vw, 72px); }
+.pb-head { display: grid; gap: 6px; }
+.pb-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pb-tag { font: 600 .72rem var(--font-mono); letter-spacing: .04em; padding: 2px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent-ink); }
+.pb-head h4 { margin: 0; font-size: var(--step-2); font-weight: 900; line-height: 1.3; }
+.pb-head .pb-sub { font-weight: 700; color: color-mix(in srgb, var(--fg) 82%, var(--bg)); }
+.pb-head p { color: color-mix(in srgb, var(--fg) 82%, var(--bg)); font-size: .95rem; max-width: 42em; }
+
+/* 玩票總動員：可互動的三階段流程 */
+.flow-hint { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.flow li { position: relative; display: grid; min-width: 0; }
+.flow li:not(:last-child)::after {
+  content: "→"; position: absolute; right: -16px; top: 50%; width: 16px; transform: translateY(-50%);
+  text-align: center; color: var(--accent); font-weight: 700; z-index: 1;
+}
+.flow-step {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; align-items: center; text-align: left;
+  padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--card);
+  font: inherit; color: inherit; cursor: pointer; transition: border-color .2s, background .2s, transform .2s;
+}
+.flow-step:hover { border-color: var(--accent); transform: translateY(-2px); }
+.flow-step .num {
+  grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--fg);
+  display: grid; place-items: center; font: 600 .95rem var(--font-mono); transition: background .2s, color .2s, border-color .2s;
+}
+.flow-step b { font-size: 1rem; line-height: 1.4; }
+.flow-step small { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+.flow-step[aria-selected="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.flow-step[aria-selected="true"] .num { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.flow-panel {
+  display: grid; gap: 16px; padding: clamp(16px, 2.4vw, 24px); border: 1px solid var(--line); border-radius: 10px;
+  background: color-mix(in srgb, var(--card) 88%, transparent); animation: panelIn .35s ease;
+}
+@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } }
+.flow-panel > p { max-width: 42em; color: color-mix(in srgb, var(--fg) 85%, var(--bg)); }
+.fp-media { display: grid; gap: 16px; }
+.fp-media.two { grid-template-columns: repeat(2, minmax(0, 240px)); }
+.fp-media.video { max-width: 640px; }
+.work-media.r-23 { aspect-ratio: 2 / 3; }
+.work-media.r-strip { aspect-ratio: 2000 / 547; }
+.flow-panel .metrics { padding-block: 4px; }
+@media (max-width: 700px) {
+  /* 手機：三個步驟維持橫排，改成「數字在上、標題在下」的小按鈕，不佔太多高度 */
+  .flow { gap: 12px; }
+  .flow li:not(:last-child)::after { right: -12px; width: 12px; font-size: .8rem; }
+  .flow-step { grid-template-columns: 1fr; justify-items: center; gap: 6px; padding: 10px 4px; text-align: center; }
+  .flow-step .num { grid-row: auto; width: 30px; height: 30px; font-size: .85rem; }
+  .flow-step b { font-size: .88rem; line-height: 1.3; }
+  .flow-step small { display: none; }
+  .flow-step:hover { transform: none; }
+  .fp-media.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 分列：同一種類一列，放不下時由右往左緩慢循環捲動，可拖曳；放得下時直接並排 */
+.krows { display: grid; gap: clamp(28px, 4vw, 40px); }
+.krow { display: grid; gap: 12px; min-width: 0; }
+.krow-head { display: flex; align-items: baseline; gap: 10px; }
+.krow-head h4 { margin: 0; font-size: 1.05rem; font-weight: 800; line-height: 1.4; color: var(--accent-ink); }
+.krow-head .n { font: .72rem var(--font-mono); color: var(--muted); }
+/* 分類名稱比單張作品名稱重：列內圖說改成較小、較輕 */
+.krow-set .work-title { font-size: .8rem; font-weight: 500; color: color-mix(in srgb, var(--fg) 78%, var(--bg)); }
+.krow-view { --w: clamp(190px, 19vw, 240px); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.krow-view::-webkit-scrollbar { display: none; }
+.krow.is-loop .krow-view {
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+.krow-view.dragging { cursor: grabbing; user-select: none; }
+.krow-track { display: flex; align-items: stretch; width: max-content; }
+.krow-set { display: flex; align-items: flex-start; gap: 28px; }
+.krow.is-loop .krow-set { padding-right: 96px; } /* 最後一張和第一張之間留較寬的間距，表示繞完一圈 */
+.krow-set .work { flex: none; width: var(--w); } /* 每張寬度一致，直式圖就比較高 */
+.krow-view img { -webkit-user-drag: none; }
+@media (max-width: 520px) { .krow-view { --w: 165px; } .krow-set { gap: 18px; } .krow.is-loop .krow-set { padding-right: 64px; } }
+
+/* 潮爽：頻道橫幅 */
+.chan-banner {
+  position: relative; display: block; aspect-ratio: 2000 / 332; border-radius: var(--radius); overflow: hidden; background: #0E0E0E;
+}
+.chan-banner img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
+.chan-banner:hover img { transform: scale(1.04); }
+.chan-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.chan-row p { color: color-mix(in srgb, var(--fg) 82%, var(--bg)); font-size: .95rem; max-width: 36em; }
+@media (max-width: 600px) { .chan-banner { aspect-ratio: 3 / 1; } }
+
+/* ---------- 廣告專案 Gallery ---------- */
+.projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.proj {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: clamp(20px, 2.4vw, 28px); display: grid; gap: 16px; align-content: start; min-width: 0;
+  transition: transform .3s cubic-bezier(.3,.7,.2,1), box-shadow .3s, border-color .3s;
+}
+/* 電腦：滑鼠指到時浮起；手機：捲到畫面中間的那張自動浮起（is-active 由 JS 加上） */
+.proj.is-active { transform: translateY(-4px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+@media (hover: hover) {
+  .proj:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+}
+.proj.featured { grid-column: span 2; background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.proj-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+.proj-tag { font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: 2px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent-ink); }
+.proj.featured .proj-tag { background: var(--accent); color: var(--on-accent); }
+.proj-role { font-size: .8rem; color: var(--muted); }
+.proj.featured .proj-role { color: color-mix(in srgb, var(--bg) 65%, var(--fg)); }
+.proj h3 { font-size: var(--step-1); font-weight: 900; }
+/* 成效數據：同一層級並排，第一個（最佳成果）放大、上色 */
+.metrics { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 28px; margin: 0; }
+.metrics div { display: grid; }
+.metrics dt { order: 2; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+.metrics dd { margin: 0; font-size: 1.3rem; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.metrics .lead dd { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 900; line-height: 1.05; color: var(--accent); }
+.proj.featured .metrics dt { color: color-mix(in srgb, var(--bg) 65%, var(--fg)); }
+.proj ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: .9rem; line-height: 1.65; }
+.proj.featured .proj-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 24px; align-items: start; }
+@media (max-width: 960px) { .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .projects { grid-template-columns: 1fr; }
+  .proj.featured { grid-column: auto; }
+  .proj.featured .proj-body { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ---------- 聯絡 ---------- */
+.contact { padding-block: clamp(72px, 10vw, 128px) 48px; display: grid; gap: 20px; }
+.contact h2 { font-size: var(--step-4); font-weight: 900; line-height: 1.15; }
+.contact h2 span { color: var(--accent); }
+.contact p { color: var(--muted); }
+.contact-mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border-top: 1px solid var(--fg); border-bottom: 1px solid var(--line); padding-block: 18px; }
+.contact-mail code { font-family: var(--font-mono); font-size: clamp(1rem, 2.6vw, 1.5rem); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.copy-btn {
+  margin-left: auto; font: inherit; font-size: .875rem; font-weight: 700; cursor: pointer;
+  border: 1.5px solid var(--fg); background: transparent; color: var(--fg); padding: 8px 16px; border-radius: var(--radius);
+}
+.copy-btn:hover { background: var(--fg); color: var(--bg); }
+footer { color: var(--muted); font-size: .75rem; padding-bottom: 40px; font-family: var(--font-mono); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- 燈箱 ---------- */
+dialog.lb {
+  border: 0; padding: 0; margin: 0; background: transparent; color: #F7F5F0;
+  width: 100vw; height: 100dvh; max-width: 100vw; max-height: 100dvh; overflow: auto;
+}
+dialog.lb::backdrop { background: rgba(10, 10, 9, .92); }
+.lb-body {
+  display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 28px; align-items: center;
+  max-width: 1100px; min-height: 100%; margin: 0 auto;
+  padding: 64px max(84px, env(safe-area-inset-left, 0px));
+}
+/* 燈箱按鈕：左右切換在畫面兩側，關閉在右上角 */
+.lb-btn {
+  position: fixed; z-index: 1; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.28); background: rgba(20,20,18,.55); color: #F7F5F0; cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.lb-btn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lb-btn:hover { background: #FF7A1A; border-color: #FF7A1A; color: #1A0E05; }
+.lb-btn:focus-visible { outline: 2px solid #FFA05C; outline-offset: 3px; }
+.lb-prev { left: max(16px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-next { right: max(16px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+.lb-close { right: max(16px, env(safe-area-inset-right, 0px)); top: max(16px, env(safe-area-inset-top, 0px)); width: 44px; height: 44px; }
+.lb-body img { width: 100%; max-height: 84dvh; object-fit: contain; }
+.lb-text { display: grid; gap: 12px; align-content: center; }
+.lb-text .label { color: #FFA05C; }
+.lb-text h3 { font-size: var(--step-2); font-weight: 900; }
+.lb-text p { color: #D9D4CA; white-space: pre-line; }
+@media (max-width: 760px) {
+  .lb-body { grid-template-columns: 1fr; gap: 16px; padding: 72px 56px 32px; }
+  .lb-body img { max-height: 62dvh; }
+  .lb-btn { width: 40px; height: 40px; }
+  .lb-btn svg { width: 20px; height: 20px; }
+  .lb-prev { left: 8px; } .lb-next { right: 8px; }
+}
+
+/* ---------- 捲動進場 ---------- */
+.reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.3,.7,.2,1); }
+.reveal.pre { opacity: .35; transform: translateY(28px); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.pre { opacity: 1; transform: none; }
+}
+</style>
+
+<nav class="nav" aria-label="主選單">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">蕭存皓</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">關於我</a></li>
+      <li><a href="#ads">廣告專案</a></li>
+      <li><a href="#works">設計作品</a></li>
+      <li><a href="#awards">獲獎</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- ===== 首頁 ===== -->
+  <header class="hero wrap">
+      <div class="hero-text">
+        <span class="label">PORTFOLIO — 數位廣告操盤手</span>
+        <h1><span class="line">蕭存皓的</span><span class="line accent"><span class="ime" data-ime="作/ㄗㄨㄛˋ/做|品/ㄆㄧㄣˇ|集/ㄐㄧˊ">作品集</span></span></h1>
+        <!-- ✎ 一句話介紹 -->
+        <p class="hero-lede">六年全職/接案數位廣告投放經驗。懂媒體工具，懂分析數據，也懂設計語彙。</p>
+        <dl class="kpis-row">
+          <div><dt>廣告投放年資</dt><dd>6<small>年</small></dd></div>
+          <div><dt>操盤年預算</dt><dd>4,000<small>萬</small></dd></div>
+          <div><dt>年均 ROAS</dt><dd>6–7</dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#ads">廣告專案 <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="#works">設計作品</a>
+        </div>
+      </div>
+  </header>
+
+  <!-- ===== 關於我 ===== -->
+  <section class="section wrap reveal" id="about" aria-labelledby="about-h">
+    <div class="section-head">
+      <span class="label">about</span>
+      <h2 id="about-h">關於我</h2>
+    </div>
+    <div class="about">
+      <div class="portrait">
+        <img src="assets/works/profile.jpg" alt="蕭存皓的大頭照">
+      </div>
+      <div class="about-body">
+        <!-- ✎ 自我介紹 -->
+        <p class="intro">熟悉工具是其次，達成行銷目標才是重點。</p>
+        <p>我熟悉 Meta、Google、LINE LAP 操作與優化，擅長以客戶痛點出發，運用全媒體思維最佳化預算配置、達成行銷目標。</p>
+        <p>早年的設計經驗也讓我懂得設計語彙與素材敏銳度，聽得懂客戶需求，並和團隊協作產出成效導向的廣告素材。</p>
+        <p>在團隊裡，我有話直說但不固執，通常扮演統合意見、推進專案的角色。不怕試錯，不懂就問，我的原則是「衝突不能解決問題」。</p>
+        <div class="hobbies">
+          <b>興趣：</b><span>唱歌彈吉他</span><span>線上遊戲</span><span>種植物</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✎ 經歷・學歷 -->
+    <div class="cv">
+      <div class="cv-block">
+        <h3>EXPERIENCE 經歷</h3>
+        <ul class="jobs">
+          <li><span><b>旭世科技股份有限公司</b><span class="role">產品經理</span></span><span class="yr">2025 –</span></li>
+          <li><span><b>欣新網股份有限公司（2949）</b><span class="role">資深數位廣告管理師</span></span><span class="yr">2022 – 2024</span></li>
+          <li><span><b>紅紅廣告股份有限公司</b><span class="role">媒體採購專員</span></span><span class="yr">2020 – 2022</span></li>
+          <li><span><b>汽車專業板金烤漆</b><span class="role">獨立接案・數位廣告策略與執行</span></span><span class="yr">2021 –</span></li>
+        </ul>
+      </div>
+      <div class="cv-block">
+        <h3>EDUCATION 學歷</h3>
+        <ul class="jobs">
+          <li><span><b>世新大學</b><span class="role">傳播管理學系 學士</span></span><span class="yr">2015 – 2019</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 廣告專案（內容由下方 AD_PROJECTS 資料產生） ===== -->
+  <section class="section wrap" id="ads" aria-labelledby="ads-h">
+    <div class="section-head reveal">
+      <span class="label">ad campaigns</span>
+      <h2 id="ads-h">廣告專案</h2>
+      <p>從千萬預算客戶到從零起步的在地店家，以下是幾個代表性的操盤成果。</p>
+    </div>
+    <div class="projects" id="projects"></div>
+  </section>
+
+  <!-- ===== 設計作品（內容由下方 WORKS 資料產生） ===== -->
+  <section class="section wrap" id="works" aria-labelledby="works-h">
+    <div class="section-head reveal">
+      <span class="label">works</span>
+      <h2 id="works-h">設計作品</h2>
+      <p>滑鼠指向作品可以看說明，點擊可以看完整原圖。</p>
+      <nav class="cat-jump" id="cat-jump" aria-label="作品分類"></nav>
+    </div>
+    <div id="cats"></div>
+  </section>
+
+  <!-- ===== 獲獎（點擊展開） ===== -->
+  <section class="section wrap reveal" id="awards" aria-labelledby="awards-h">
+    <div class="section-head">
+      <span class="label">awards</span>
+      <h2 id="awards-h">獲獎</h2>
+    </div>
+    <div class="awards">
+      <!-- ✎ 每個獎項的「競賽介紹」 -->
+      <article class="award">
+        <div class="award-head">
+          <span class="award-yr">2021</span>
+          <span class="award-main"><span class="award-rank">第一名</span><span class="award-name">燒賣廣告創意激盪社｜廣告素材徵集</span></span>
+        </div>
+        <div class="award-body">
+          <div><h4>競賽介紹</h4><p>主辦方提供品牌的行銷目標，參賽者依照行銷目標製作廣告素材。通過初選的素材會被主辦方實際拿去投放廣告，依照廣告實際的轉換效果來決定名次。不只考驗素材的設計能力，也考驗素材的獲利能力。</p></div>
+        </div>
+      </article>
+      <article class="award">
+        <div class="award-head">
+          <span class="award-yr">2018</span>
+          <span class="award-main"><span class="award-rank">首獎</span><span class="award-name">世新大學｜五月花 2018 廣告創意競賽</span></span>
+        </div>
+        <div class="award-body">
+          <div><h4>競賽介紹</h4><p>主辦方要求以五月花新品「蓬、厚、柔」的產品特點提供廣告腳本。我們以「摸恐怖箱」為主題發想，腳本呈現孩童摸到恐怖箱中的衛生紙後描述「蓬、厚、柔」的觸感，對比摸到其他材質粗糙的物品，來展現出衛生紙的柔軟觸感。最終腳本也被實際拍攝成廣告。</p></div>
+          <a class="watch" href="https://www.youtube.com/watch?v=mHQ2y7gdeE8" target="_blank" rel="noopener">觀看廣告影片 ↗</a>
+        </div>
+      </article>
+      <article class="award">
+        <div class="award-head">
+          <span class="award-yr">2018</span>
+          <span class="award-main"><span class="award-rank">第一名</span><span class="award-name">世新大學｜中保無限+ 創意行銷提案競賽</span></span>
+        </div>
+        <div class="award-body">
+          <div><h4>競賽介紹</h4><p>主辦方要求以創意提案來替中保無限+的服務進行行銷宣傳。我們翻拍當時的熱門影劇「花甲男孩轉大人」中一鏡到底的橋段，也找了專業的臨演來擔任影片中的角色，將品牌產品服務巧妙的置入到台詞當中，最終產出結合時事話題以及讓產品能被有效記憶的翻拍短劇。</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== 聯絡 ===== -->
+  <section class="contact wrap reveal" id="contact" aria-labelledby="contact-h">
+    <span class="label">contact</span>
+    <h2 id="contact-h">一起把廣告<br>做得<span class="ime" data-ime="更/ㄍㄥˋ|有/ㄧㄡˇ|效/ㄒㄧㄠˋ|：|）">更有效：）</span></h2>
+    <p>廣告操盤、素材企劃的合作都歡迎聊聊。</p>
+    <div class="contact-mail">
+      <!-- ✎ 聯絡 Email -->
+      <code id="mail">jimmyhsiao1000@gmail.com</code>
+      <button class="copy-btn" id="copy-mail" type="button">複製 Email</button>
+    </div>
+  </section>
+  <footer class="wrap"><span>© 蕭存皓</span><span>Portfolio 2026</span></footer>
+</main>
+
+<dialog class="lb" id="lb" aria-label="作品大圖">
+  <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="關閉"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="上一張"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="下一張"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="lb-body">
+    <img id="lb-img" alt="">
+    <div class="lb-text">
+      <span class="label" id="lb-cat"></span>
+      <h3 id="lb-title"></h3>
+      <p id="lb-note"></p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* =========================================================
+   作品資料：要新增、刪除、改說明，都改這裡就好
+   - note 就是作品註解，滑鼠指向時跳出
+   - focus 可調整裁切位置，例如 "center top"
+   ========================================================= */
+const WORKS = [
+  {
+    id: "graphic", key: "A", title: "平面設計",
+    desc: "獨立製作的廣告素材與平面文宣，從文案、版面到產出。",
+    rows: true, // 依 kind 分列，每列自動緩慢捲動（放得下時直接並排）
+    items: [
+      { src: "assets/works/a-kob-mooncake.jpg", kind: "Meta 廣告素材", project: "鬍子國王", title: "中秋禮盒", note: "以情境照作為主體搭配促銷文案字卡，廣告格式以多圖形式增加互動率。" },
+      { src: "assets/works/a-kob-promo.jpg", kind: "Meta 廣告素材", project: "鬍子國王", title: "促銷活動", note: "復古放射線設計呈現促銷節慶感，蛋捲特寫讓食物細節能被看見，加上促銷文字吸引購買。", focus: "center top" },
+      { src: "assets/works/a-kob-new.jpg", kind: "Meta 廣告素材", project: "鬍子國王", title: "新品上市", note: "濃郁的咖啡蛋捲徜徉在咖啡香氣中，將咖啡香的嗅覺體驗視覺化，再用咖啡豆點綴。", focus: "center 35%" },
+      { src: "assets/works/a-missseesaw.jpg", kind: "Meta 廣告素材", project: "MissSeesaw", title: "葉黃素優惠", note: "簡約可愛的向量圖來呈現快樂開學情境，以多圖同時呈現產品多項賣點。" },
+      { src: "assets/works/a-lazyroll.jpg", kind: "Meta 廣告素材", project: "捲捲舒", title: "雙 11 檔期廣告", note: "以商品特色「壽司捲」作為主體，搭配多樣商品優惠組合呈現。", focus: "center 60%" },
+      { src: "assets/works/d-206-02.jpg", kind: "關西 206 旅", title: "平面文宣 01", note: "黑白人像搭配單一橘色點綴，以英文窄體字排出部隊番號，呈現俐落的質感軍旅形象。" },
+      { src: "assets/works/d-206-01.jpg", kind: "關西 206 旅", title: "平面文宣 02", note: "以等角立體插畫呈現道路、戰車與官兵，把部隊番號化為地景，用插畫語彙讓軍旅形象更年輕。" },
+      { src: "assets/works/d-banner-entrance.jpg", kind: "關西 206 旅", title: "營區入口圍牆帆布", note: "沿著入口圍牆展開的長幅帆布，以圓形視窗串連「戰鬥」「速度」等主題人像，形成連續的視覺節奏。" },
+      { src: "assets/works/d-banner-parking.jpg", kind: "關西 206 旅", title: "營區停車場帆布", note: "以「責任」「威武部隊」為主題，拼貼官兵人像與營區生活照，用亮黃綠色帶出部隊的活力。" },
+    ],
+  },
+  {
+    id: "collab", key: "B", title: "與設計師協作",
+    desc: "由我提出素材方向與文案，和 design team 一起完成的廣告素材與商品攝影。",
+    rows: true,
+    items: [
+      { src: "assets/works/b-logi-pro.jpg", kind: "Meta 廣告素材", project: "Logitech G", title: "職業選手聯名", note: "結合選手影片和平面主視覺，營造專業又具電競風格的質感。" },
+      { src: "assets/works/b-logi-kol.jpg", kind: "Meta 廣告素材", project: "Logitech G", title: "KOL 合作", note: "結合 KOL 影片和促銷優惠圖卡，讓名人推薦與促銷優惠同步呈現。" },
+      { src: "assets/works/b-logi-midyear.jpg", kind: "Meta 廣告素材", project: "Logitech G", title: "年中回饋瘋撒券", note: "結合電商平台大促 Banner，搭配新品上市主視覺。" },
+      { src: "assets/works/b-logi-brandday.jpg", kind: "Meta 廣告素材", project: "Logitech G", title: "超級品牌日", note: "巧妙利用限時動態投票功能吸引點擊，替即將到來的促銷 D-Day 預熱，累積聲量。" },
+      { src: "assets/works/b-logi-acer.jpg", kind: "Meta 廣告素材", project: "Logitech G × Acer", title: "年終狂歡慶", note: "呈現重點促銷商品，最大化吸引購買意願。" },
+      { src: "assets/works/b-persil.jpg", kind: "Meta 廣告素材", project: "Persil", title: "品牌聯合慶", note: "呈現重點促銷商品，搭配優惠價格以及 CTA 呼籲行動。", focus: "center 45%" },
+      { src: "assets/works/b-photo-01.jpg", kind: "平面攝影", project: "鬍子國王", title: "商品情境照 01", note: "透過窗花道具呈現古風中秋質感。" },
+      { src: "assets/works/b-photo-02.jpg", kind: "平面攝影", project: "鬍子國王", title: "商品情境照 02", note: "特寫食材斷面秀，看清細節更能提振食慾及購買慾。" },
+      { src: "assets/works/b-photo-03.jpg", kind: "平面攝影", project: "鬍子國王", title: "商品情境照 03", note: "深淺不同的背景版，讓多張情境照更有對比層次。" },
+    ],
+  },
+  {
+    id: "grad", key: "C", title: "畢展背板",
+    desc: "世新大學傳播管理學系畢業製作「Japan Foodie」的展覽攤位背板。專案以社群經營為主，半年內粉絲增加 3,000 人、互動率提升 5%。",
+    items: [
+      { src: "assets/works/c-grad-01.jpg", kind: "展場背板", title: "Japan Foodie 01", note: "以漫畫風格呈現畢製成果，具備玩味的視覺效果，同時也讓觀展者更願意停留。" },
+      { src: "assets/works/c-grad-02.jpg", kind: "展場背板", title: "Japan Foodie 02", note: "以漫畫風格呈現畢製成果，具備玩味的視覺效果，同時也讓觀展者更願意停留。" },
+    ],
+  },
+  {
+    id: "other", key: "D", title: "其他",
+    desc: "影像企劃、拍攝與剪輯作品。",
+    // 企劃專案展示：玩票總動員（steps 的 proofs 對應下方 proofs 的編號，video: true 代表顯示影片）
+    showcase: {
+      project: "玩票總動員",
+      tag: "產學合作・企劃專案",
+      title: "【玩票總動員】挑戰端午節有史以來最白目、最不可能的立蛋！！！",
+      url: "https://youtu.be/0Fd-lemQN_g",
+      cover: "assets/works/e-wanpiao-cover.webp",
+      body: "「玩票總動員」是我大學期間參與的產學合作專案，和同學一起創辦的 YouTube 頻道。這支影片結合端午節的節慶議題，分三個階段把話題推出圈，成為頻道第一支破圈的影片，訂閱數與觀看次數都明顯成長。",
+      steps: [
+        { title: "話題預熱", sub: "Dcard 貼文心情紫爆", text: "拍攝期間先在 Dcard 操作端午立蛋的話題。〈很認真過端午的同學〉與〈我是很認真過端午節的同學本人〉兩篇貼文的按讚心情都達到紫爆，心情數分別達 22,942 與 10,300。", proofs: [0, 1],
+          stats: [
+            { value: "22,942", label: "Dcard 熱門貼文心情數" },
+            { value: "2 篇", label: "Dcard 紫爆貼文" },
+          ] },
+        { title: "影片上架", sub: "承接熱度導流", text: "影片上架時承接 Dcard 累積的討論熱度，把好奇的網友導流到頻道，訂閱數與觀看次數明顯成長。", video: true },
+        { title: "媒體擴散", sub: "娛樂媒體轉發", text: "影片後續獲得多家娛樂媒體轉發分享，廣泛觸及新觀眾。", proofs: [2],
+          stats: [
+            { value: "4 家", label: "媒體轉發頻道影片" },
+            { value: "6.9 萬", label: "蘋果日報轉發最高觀看次數" },
+          ] },
+      ],
+      proofs: [
+        { src: "assets/works/e-wanpiao-dcard-01.png", title: "Dcard 熱門貼文 01", note: "〈很認真過端午的同學〉衝上 Dcard 熱門，心情數 22,942。" },
+        { src: "assets/works/e-wanpiao-dcard-02.png", title: "Dcard 熱門貼文 02", note: "〈我是很認真過端午節的同學本人〉衝上 Dcard 熱門，心情數 10,300。" },
+        { src: "assets/works/e-wanpiao-media.webp", title: "多家媒體轉發", note: "Yahoo TV、即新聞、東森新聞、蘋果日報轉發頻道影片。", shape: "strip", noCaption: true },
+      ],
+    },
+    items: [
+      { type: "channel", url: "https://www.youtube.com/@ChaoShuang", cover: "assets/works/e-chaoshuang-cover.jpg", project: "潮爽 ChaoShuang", tag: "實習・頻道影片製作", title: "YouTube 頻道", note: "紅紅廣告實習期間，負責頻道的影片企劃、拍攝與後製。" },
+    ],
+  },
+];
+
+/* =========================================================
+   廣告專案：以文字為主的 Gallery，第一個會放大顯示
+   headline 是卡片上最大的那個數字
+   ========================================================= */
+const AD_PROJECTS = [
+  {
+    tag: "3C 品類",
+    title: "千萬預算規模，台灣、香港全媒體廣告操盤",
+    role: "欣新網・資深數位廣告管理師",
+    headline: { value: "6–7", label: "年均 ROAS" },
+    kpis: [ { label: "年預算", value: "4,000 萬" }, { label: "管理團隊", value: "2–3 人" }, { label: "市場", value: "台灣、香港" } ],
+    points: [
+      "規劃台灣、香港兩地全媒體廣告，對接 Marketing、Sales 跨部門窗口",
+      "用 BigQuery、Looker Studio 建立品牌全媒體成效儀表板",
+    ],
+  },
+  {
+    tag: "汽車服務",
+    title: "從零建立廣告策略",
+    role: "獨立接案",
+    headline: { value: "+1,400%", label: "首月營收 MoM" },
+    kpis: [ { label: "首月預算", value: "1 萬元" }, { label: "月新客詢價", value: "約 400 位" }, { label: "平均 CPL", value: "75 元" } ],
+    points: [ "從零規劃廣告策略，接手首月就帶動營收成長","不走傳統轉換廣告，以 Lead Ads 帶來新客詢價" ],
+  },
+  {
+    tag: "女性保健",
+    title: "重整廣告架構，擴大上層漏斗",
+    role: "紅紅廣告・媒體採購專員",
+    headline: { value: "2 倍", label: "ROAS 提升" },
+    kpis: [ { label: "營收 YoY", value: "+50%" } ],
+    points: [ "重整廣告架構，擴大上層漏斗的觸及","導入 DPA 廣告，帶動再行銷受眾轉換" ],
+  },
+  {
+    tag: "戶外品牌",
+    title: "大檔購物金拉新活動",
+    role: "紅紅廣告・媒體採購專員",
+    headline: { value: "7.4", label: "首週 ROAS" },
+    kpis: [ { label: "首週訂單", value: "160 單" }, { label: "檔期 ROAS", value: "5.6" } ],
+    points: [ "規劃大檔期購物金拉新活動" ],
+  },
+  {
+    tag: "群眾募資",
+    title: "廚具嘖嘖募資專案",
+    role: "紅紅廣告・媒體採購專員",
+    headline: { value: "180 萬", label: "總募資金額" },
+    kpis: [ { label: "名單", value: "5,000 筆" }, { label: "CPL", value: "20 元" } ],
+    points: [ "設計前測問卷，以低成本名單蒐集帶動募資熱度","主導募資專案，設定前中後期廣告策略"  ],
+  },
+];
+
+/* ===================== 以下為程式，一般不需要修改 ===================== */
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function ytId(u) {
+  if (!u) return null;
+  const m = String(u).match(/(?:youtu\.be\/|[?&]v=|shorts\/|embed\/|live\/)([\w-]{11})/);
+  return m ? m[1] : (/^[\w-]{11}$/.test(u) ? u : null);
+}
+function loadRatio(src) {
+  return new Promise(res => {
+    const im = new Image();
+    im.onload = () => res(im.naturalWidth / im.naturalHeight < 0.75 ? "portrait" : "square");
+    im.onerror = () => res("square");
+    im.src = src;
+  });
+}
+// 圖片下方：橘色小字是作品種類（kind），黑字是「品牌 | 名稱」，沒有品牌就只顯示名稱
+const label = it => it.project ? `${it.project} | ${it.title}` : it.title;
+// 換行只發生在「品牌 |」和名稱之間，不會把字拆開
+const labelHtml = it => it.project
+  ? `<span class="wt">${esc(it.project)} |</span> <span class="wt">${esc(it.title)}</span>`
+  : `<span class="wt">${esc(it.title)}</span>`;
+const caption = it => `<figcaption>${it.kind ? `<span class="work-project">${esc(it.kind)}</span>` : ""}<span class="work-title">${labelHtml(it)}</span></figcaption>`;
+
+function imageCard(it, cat, idx) {
+  return `<figure class="work">
+    <button class="work-media r-${it.ratio}" type="button" data-cat="${cat.id}" data-idx="${idx}" aria-label="查看大圖：${esc(label(it))}">
+      <img src="${esc(it.src)}" alt="${esc(label(it))}" loading="lazy" style="object-position:${esc(it.focus || "center")}">
+      <span class="work-note"><strong>${esc(it.title)}</strong><span>${esc(it.note)}</span><em>點擊看原圖 ↗</em></span>
+    </button>
+    ${caption(it)}
+  </figure>`;
+}
+function videoCard(it) {
+  const id = ytId(it.url);
+  return `<figure class="work">
+    <button class="work-media r-video" type="button" data-yt="${id}" aria-label="播放影片：${esc(it.title)}">
+      <span class="yt-poster"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-play"></span></span>
+      <span class="work-note"><strong>${esc(it.title)}</strong><span>${esc(it.note)}</span><em>點擊播放 ▶</em></span>
+    </button>
+    ${caption(it)}
+    <a class="yt-out" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>
+  </figure>`;
+}
+// 頻道專案：橫幅 + 說明 + 前往頻道
+function channelBlock(it) {
+  return `<section class="pblock">
+    <div class="pb-head">
+      <div class="pb-meta"><span class="pb-tag">${esc(it.tag)}</span></div>
+      <h4>${esc(it.project)}</h4>
+    </div>
+    <a class="chan-banner" href="${esc(it.url)}" target="_blank" rel="noopener" aria-label="前往 ${esc(it.project)} YouTube 頻道">
+      <img src="${esc(it.cover)}" alt="${esc(it.project)} 頻道封面" loading="lazy">
+    </a>
+    <div class="chan-row">
+      <p>${esc(it.note)}</p>
+      <a class="watch" href="${esc(it.url)}" target="_blank" rel="noopener">前往 YouTube 頻道 ↗</a>
+    </div>
+  </section>`;
+}
+
+// 企劃專案：標題 + 可互動的三階段流程（點選展開對應截圖）+ 成效數據
+function showcaseBlock(cat) {
+  const s = cat.showcase;
+  const id = ytId(s.url);
+  const proofCard = i => {
+    const p = s.proofs[i];
+    const strip = p.shape === "strip";
+    return `<figure class="work">
+      <button class="work-media ${strip ? "r-strip" : "r-23"}" type="button" data-cat="${cat.id}" data-proof="${i}" aria-label="查看大圖：${esc(p.title)}">
+        <img src="${esc(p.src)}" alt="${esc(p.title)}" loading="lazy" style="object-position:${esc(p.focus || "center")}">
+        <span class="work-note"><strong>${esc(p.title)}</strong><span>${esc(p.note)}</span><em>點擊看原圖 ↗</em></span>
+      </button>
+      ${p.noCaption ? "" : `<figcaption><span class="work-title">${esc(p.title)}</span></figcaption>`}
+    </figure>`;
+  };
+  const video = `<figure class="work">
+      <button class="work-media r-video" type="button" data-yt="${id}" aria-label="播放影片：${esc(s.title)}">
+        <span class="yt-poster"><img src="${esc(s.cover)}" alt="" loading="lazy"><span class="yt-play"></span></span>
+      </button>
+      <a class="yt-out" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>
+    </figure>`;
+  const tabs = s.steps.map((st, i) => `<li role="presentation"><button class="flow-step" type="button" role="tab" id="flow-${cat.id}-${i}" aria-controls="flowp-${cat.id}-${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">
+      <span class="num">${i + 1}</span><b>${esc(st.title)}</b><small>${esc(st.sub)}</small>
+    </button></li>`).join("");
+  const panels = s.steps.map((st, i) => {
+    const media = st.video
+      ? `<div class="fp-media video">${video}</div>`
+      : `<div class="fp-media${st.proofs.length > 1 ? " two" : ""}">${st.proofs.map(proofCard).join("")}</div>`;
+    return `<div class="flow-panel" role="tabpanel" id="flowp-${cat.id}-${i}" aria-labelledby="flow-${cat.id}-${i}"${i === 0 ? "" : " hidden"}>
+      <p>${esc(st.text)}</p>${st.stats ? metrics(st.stats) : ""}${media}
+    </div>`;
+  }).join("");
+  return `<section class="pblock">
+    <div class="pb-head">
+      <div class="pb-meta"><span class="pb-tag">${esc(s.tag)}</span></div>
+      <h4>${esc(s.project)}</h4>
+      <span class="pb-sub">${esc(s.title)}</span>
+      <p>${esc(s.body)}</p>
+    </div>
+    <span class="flow-hint">點選每個階段，查看對應的成果 ↓</span>
+    <ol class="flow" role="tablist" aria-label="${esc(s.project)} 專案流程">${tabs}</ol>
+    ${panels}
+  </section>`;
+}
+// 流程圖：切換階段
+function selectStep(btn) {
+  const list = btn.closest(".flow");
+  list.querySelectorAll(".flow-step").forEach(b => {
+    const on = b === btn;
+    b.setAttribute("aria-selected", on);
+    b.tabIndex = on ? 0 : -1;
+    document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+  });
+}
+document.addEventListener("keydown", e => {
+  const btn = e.target.closest?.(".flow-step");
+  if (!btn || !["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(e.key)) return;
+  const all = [...btn.closest(".flow").querySelectorAll(".flow-step")];
+  const d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : -1;
+  const next = all[(all.indexOf(btn) + d + all.length) % all.length];
+  e.preventDefault(); next.focus(); selectStep(next);
+});
+
+async function renderWorks() {
+  // 依圖片尺寸自動決定裁切：直式 → 手機直式，其他 → 正方形
+  await Promise.all(WORKS.flatMap(c => c.items)
+    .filter(it => !it.type && !it.ratio)
+    .map(async it => { it.ratio = await loadRatio(it.src); }));
+
+  $("#cat-jump").innerHTML = WORKS.map(c => `<a href="#cat-${c.id}"><b>${c.key}</b>${esc(c.title)}</a>`).join("");
+  $("#cats").innerHTML = WORKS.map(cat => {
+    const imgs = [], vids = [], blocks = [];
+    cat.items.forEach((it, i) => {
+      if (it.type === "youtube") vids.push(videoCard(it));
+      else if (it.type === "channel") blocks.push(channelBlock(it));
+      else if (!cat.rows) imgs.push(imageCard(it, cat, i));
+    });
+    const n = cat.items.length + (cat.showcase ? 1 : 0);
+    return `<article class="cat reveal" id="cat-${cat.id}" aria-labelledby="cat-${cat.id}-h">
+      <div class="cat-side">
+        <span class="cat-key">${cat.key}</span>
+        <h3 id="cat-${cat.id}-h">${esc(cat.title)}</h3>
+        <p>${esc(cat.desc)}</p>
+        <span class="cat-count">${n} 件作品</span>
+      </div>
+      <div>
+        ${cat.showcase ? showcaseBlock(cat) : ""}
+        ${blocks.join("")}
+        ${cat.rows ? rowsBlock(cat) : ""}
+        ${imgs.length ? `<div class="masonry">${imgs.join("")}</div>` : ""}
+        ${vids.length ? `<div class="videos">${vids.join("")}</div>` : ""}
+      </div>
+    </article>`;
+  }).join("");
+  setupRows();
+  layoutMasonry();
+  document.fonts?.ready.then(layoutMasonry);
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(() => layoutMasonry());
+    document.querySelectorAll(".masonry").forEach(m => ro.observe(m));
+  } else addEventListener("resize", layoutMasonry);
+}
+// 分列：依 kind 把作品分成數列，種類名稱只在每列開頭出現一次
+function rowsBlock(cat) {
+  const order = [], by = {};
+  cat.items.forEach((it, i) => {
+    if (it.type) return;
+    const k = it.kind || "";
+    if (!by[k]) { by[k] = []; order.push(k); }
+    by[k].push(imageCard({ ...it, kind: "" }, cat, i));
+  });
+  return `<div class="krows">${order.map(k => `<section class="krow">
+      <div class="krow-head"><h4>${esc(k)}</h4><span class="n">${by[k].length} 件</span></div>
+      <div class="krow-view" role="region" aria-label="${esc(k)}"><div class="krow-track"><div class="krow-set">${by[k].join("")}</div></div></div>
+    </section>`).join("")}</div>`;
+}
+// 放不下的列：複製一份接在後面，由右往左緩慢循環，可拖曳或用觸控板／手指滑動。
+// 只有「正在拖曳」或「手指剛碰過」時才暫停；滑鼠指著時放慢，方便看說明，但不會停。
+// 每個暫停狀態都有時限，就算瀏覽器漏掉某個結束事件，也會自己恢復移動。
+const ROW_SPEED = 28;        // 每秒移動幾 px
+const ROW_HOVER_SPEED = 0.3; // 滑鼠指著時的速度倍率
+const canHover = matchMedia("(hover: hover)");
+const rows = [];
+function setupRows() {
+  document.querySelectorAll(".krow").forEach(row => {
+    const view = row.querySelector(".krow-view");
+    const st = { row, view, track: row.querySelector(".krow-track"), set: row.querySelector(".krow-set"), w: 0, x: 0, hold: 0, drag: null, moved: false };
+    rows.push(st);
+    const wrap = v => st.w ? ((v % st.w) + st.w) % st.w : v;
+    view.addEventListener("scroll", () => {
+      if (st.w && (view.scrollLeft >= st.w || view.scrollLeft <= 0)) view.scrollLeft = wrap(view.scrollLeft) || st.w;
+    }, { passive: true });
+    // 手指滑動：碰到後暫停 1.5 秒，持續滑就持續延長
+    const touch = () => { st.hold = performance.now() + 1500; };
+    ["touchstart", "touchmove", "touchend", "touchcancel"].forEach(t => view.addEventListener(t, touch, { passive: true }));
+    view.addEventListener("dragstart", e => e.preventDefault());
+    view.addEventListener("pointerdown", e => {
+      if (e.pointerType !== "mouse" || e.button !== 0 || !st.w) return;
+      st.drag = { x: e.clientX, s: view.scrollLeft, id: e.pointerId }; st.moved = false;
+    });
+    view.addEventListener("pointermove", e => {
+      if (!st.drag) return;
+      if (!(e.buttons & 1)) { end(); return; } // 放開滑鼠時沒收到 pointerup
+      const dx = e.clientX - st.drag.x;
+      if (!st.moved && Math.abs(dx) > 5) { st.moved = true; view.classList.add("dragging"); try { view.setPointerCapture(st.drag.id); } catch {} }
+      if (st.moved) view.scrollLeft = wrap(st.drag.s - dx) || st.w;
+    });
+    const end = () => { st.drag = null; view.classList.remove("dragging"); };
+    view.addEventListener("pointercancel", end);
+    view.addEventListener("lostpointercapture", end);
+    addEventListener("pointerup", end); // 在列外放開滑鼠也要結束拖曳
+    addEventListener("blur", end);
+    // 拖曳結束時不要誤開大圖
+    view.addEventListener("click", e => { if (st.moved) { e.preventDefault(); e.stopPropagation(); st.moved = false; } }, true);
+  });
+  fitRows();
+  // 只有寬度改變才重新排列（手機捲動時網址列伸縮只改高度，不重排）
+  let t, lastW = innerWidth;
+  addEventListener("resize", () => {
+    if (innerWidth === lastW) return;
+    lastW = innerWidth; clearTimeout(t); t = setTimeout(fitRows, 150);
+  });
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) requestAnimationFrame(tickRows);
+}
+function fitRows() {
+  rows.forEach(st => {
+    st.track.querySelectorAll(".krow-set[aria-hidden]").forEach(c => c.remove());
+    st.row.classList.remove("is-loop");
+    st.w = 0; st.view.scrollLeft = 0;
+    if (st.set.scrollWidth <= st.view.clientWidth + 1) return; // 放得下：直接並排
+    st.row.classList.add("is-loop");
+    const clone = st.set.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("button, a").forEach(b => { b.tabIndex = -1; });
+    st.track.append(clone);
+    st.w = st.set.offsetWidth;
+    st.x = 1;
+  });
+}
+let lastTick = 0;
+function tickRows(now) {
+  const dt = lastTick ? Math.min(now - lastTick, 100) / 1000 : 0;
+  lastTick = now;
+  try {
+    rows.forEach(st => {
+      if (!st.w || st.drag || st.hold > now) return;
+      if (Math.abs(st.view.scrollLeft - st.x) > 2) st.x = st.view.scrollLeft; // 使用者自己滑過
+      // 手機點過之後瀏覽器會一直保留 :hover，所以只有真的有滑鼠的裝置才放慢
+      st.x += ROW_SPEED * dt * (canHover.matches && st.view.matches(":hover") ? ROW_HOVER_SPEED : 1);
+      if (st.x >= st.w) st.x -= st.w;
+      st.view.scrollLeft = st.x;
+    });
+  } finally {
+    requestAnimationFrame(tickRows); // 就算出錯也繼續下一幀，不會整個停住
+  }
+}
+
+// 瀑布流：依每張卡片的實際高度決定佔幾列
+function layoutMasonry() {
+  document.querySelectorAll(".masonry > .work").forEach(w => {
+    w.style.gridRowEnd = "span " + Math.ceil(w.getBoundingClientRect().height / 4);
+  });
+}
+
+// 成效數據：全部同一層級，第一個（最佳成果）放大上色
+function metrics(list) {
+  return `<dl class="metrics">${list.map((k, i) => `<div${i === 0 ? ' class="lead"' : ""}><dt>${esc(k.label)}</dt><dd>${esc(k.value)}</dd></div>`).join("")}</dl>`;
+}
+
+function renderAds() {
+  $("#projects").innerHTML = AD_PROJECTS.map((p, i) => {
+    const nums = metrics([p.headline, ...p.kpis]);
+    const points = p.points?.length ? `<ul>${p.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+    const body = i === 0
+      ? `<div class="proj-body">${nums}${points}</div>`
+      : `${nums}${points}`;
+    return `<article class="proj reveal${i === 0 ? " featured" : ""}">
+      <div class="proj-top"><span class="proj-tag">${esc(p.tag)}</span><span class="proj-role">${esc(p.role)}</span></div>
+      <h3>${esc(p.title)}</h3>
+      ${body}
+    </article>`;
+  }).join("");
+}
+
+/* 燈箱 */
+const lb = $("#lb");
+let lbCat = null, lbList = [], lbIdx = 0;
+function showLb() {
+  const it = lbList[lbIdx];
+  const kind = it.kind || lbCat.showcase?.project || "";
+  $("#lb-img").src = it.src;
+  $("#lb-img").alt = label(it);
+  $("#lb-cat").textContent = `${lbCat.key} · ${lbCat.title}${kind ? " · " + kind : ""}`;
+  $("#lb-title").textContent = label(it);
+  $("#lb-note").textContent = it.note || "";
+}
+function stepLb(d) {
+  lbIdx = (lbIdx + d + lbList.length) % lbList.length;
+  showLb();
+}
+document.addEventListener("click", e => {
+  const step = e.target.closest(".flow-step");
+  if (step) { selectStep(step); return; }
+  const yt = e.target.closest("[data-yt]");
+  if (yt) {
+    const holder = document.createElement("div");
+    holder.className = yt.className;
+    holder.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt.dataset.yt}?autoplay=1&rel=0" title="YouTube 影片" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    yt.replaceWith(holder);
+    return;
+  }
+  const card = e.target.closest(".work-media[data-cat]");
+  if (card) {
+    lbCat = WORKS.find(c => c.id === card.dataset.cat);
+    if (card.dataset.proof !== undefined) {
+      lbList = lbCat.showcase.proofs;
+      lbIdx = +card.dataset.proof;
+    } else {
+      lbList = lbCat.items.filter(it => !it.type);
+      lbIdx = lbList.indexOf(lbCat.items[+card.dataset.idx]);
+    }
+    showLb();
+    lb.showModal();
+  }
+});
+$("#lb-prev").onclick = () => stepLb(-1);
+$("#lb-next").onclick = () => stepLb(1);
+$("#lb-close").onclick = () => lb.close();
+lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-body")) lb.close(); });
+lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") stepLb(-1); if (e.key === "ArrowRight") stepLb(1); });
+
+/* 複製 Email */
+$("#copy-mail").addEventListener("click", async e => {
+  const t = $("#mail").textContent.trim();
+  try { await navigator.clipboard.writeText(t); e.target.textContent = "已複製"; }
+  catch { getSelection().selectAllChildren($("#mail")); e.target.textContent = "已選取，請按複製"; }
+  setTimeout(() => { e.target.textContent = "複製 Email"; }, 2000);
+});
+
+/* 捲動進場 + 導覽列目前位置 */
+function setupScroll() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.remove("pre"); io.unobserve(en.target); }
+    }), { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); io.observe(el); }
+    });
+  }
+  // 導覽列目前位置：每次捲動都重新判斷「畫面 40% 高度那條線落在哪個區塊」，往上、往下捲都一致
+  const links = [...document.querySelectorAll(".nav-links a")];
+  const secs = ["about", "ads", "works", "awards", "contact"].map(id => document.getElementById(id));
+  const spy = () => {
+    const line = innerHeight * 0.4;
+    let cur = null;
+    secs.forEach(s => { if (s.getBoundingClientRect().top <= line) cur = s; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) cur = secs[secs.length - 1]; // 捲到底
+    links.forEach(a => a.classList.toggle("is-active", !!cur && a.getAttribute("href") === "#" + cur.id));
+  };
+  addEventListener("scroll", spy, { passive: true });
+  addEventListener("resize", spy);
+  spy();
+}
+
+renderAds();
+
+/* 注音輸入動畫：data-ime="字/注音/先選到的字|字/注音|符號"
+   一個注音一個注音打出來，再選字變成國字；第三欄是輸入法一開始猜錯的字，打下一個字時才自動改正。
+   沒有注音的（例如：）就直接打出來。打完停一下，刪掉重打 */
+function imeType(el) {
+  const seq = el.dataset.ime.split("|").map(p => { const [ch, zy = "", guess] = p.split("/"); return { ch, zy: [...zy], guess }; });
+  const full = seq.map(s => s.ch).join("");
+  el.innerHTML = `<span class="ime-sr">${esc(full)}</span><span aria-hidden="true"><span class="ime-done"></span><span class="ime-comp"></span><span class="ime-caret"></span></span>`;
+  const done = el.querySelector(".ime-done"), comp = el.querySelector(".ime-comp");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { done.textContent = full; return; }
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  (async () => {
+    await wait(700);
+    for (;;) {
+      el.classList.add("typing");
+      const out = [];
+      for (const s of seq) {
+        if (s.zy.length) {
+          for (let k = 1; k <= s.zy.length; k++) { comp.textContent = s.zy.slice(0, k).join(""); await wait(150 + Math.random() * 70); }
+          await wait(280);                     // 停一下像在選字
+        } else await wait(260);
+        comp.textContent = "";
+        // 打出這個字的同時，把前面猜錯的字改成正確的字（自動選詞）
+        out.forEach((c, i) => { if (seq[i].guess) out[i] = seq[i].ch; });
+        out.push(s.guess || s.ch);
+        done.textContent = out.join("");
+        await wait(200);
+      }
+      el.classList.remove("typing");
+      await wait(3200);                        // 打完停留，游標閃爍
+      el.classList.add("typing");
+      while (out.length) { out.pop(); done.textContent = out.join(""); await wait(110); }
+      el.classList.remove("typing");
+      await wait(700);
+    }
+  })();
+}
+document.querySelectorAll(".ime[data-ime]").forEach(imeType);
+
+/* 手機（沒有滑鼠）：捲動時，畫面正中間那張廣告專案卡片自動浮起並出現橘色外框 */
+function setupProjFocus() {
+  if (!matchMedia("(hover: none)").matches) return;
+  const cards = [...document.querySelectorAll(".proj")];
+  const update = () => {
+    const mid = innerHeight / 2;
+    let best = null;
+    cards.forEach(c => {
+      const r = c.getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) best = c;
+    });
+    cards.forEach(c => c.classList.toggle("is-active", c === best));
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+}
+setupProjFocus();
+renderWorks().then(setupScroll);
+</script>
